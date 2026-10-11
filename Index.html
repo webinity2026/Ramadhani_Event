@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>રામાધણી ઇવેન્ટ - ટોકન સ્ટેટસ પોર્ટલ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Noto Sans Gujarati -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPink: '#E11D48',
+                        brandYellow: '#EAB308',
+                        brandYellowDark: '#CA8A04',
+                        darkBg: '#0F0F0F',
+                        cardBg: '#1C1C1E',
+                    },
+                    fontFamily: {
+                        gujarati: ['Hind Vadodara', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Hind Vadodara', 'Inter', sans-serif;
+            background-color: #0F0F0F;
+            color: #FFFFFF;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .pulse-badge {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .85; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121212;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-white min-h-screen flex flex-col items-center justify-between font-gujarati antialiased">
+
+    <!-- MAIN WRAPPER WITH MAXIMUM CONTAINER WIDTH -->
+    <div class="w-full max-w-md md:max-w-xl min-h-screen flex flex-col justify-between bg-black shadow-2xl relative">
+        
+        <!-- TOP HEADER BAR -->
+        <header class="w-full px-4 py-3 flex items-center justify-between border-b border-gray-800 bg-black/90 sticky top-0 z-40 backdrop-blur-md">
+            <!-- LOGO BADGE (Matching Pink/Magenta Pill Style) -->
+            <div class="bg-gradient-to-r from-pink-600 via-rose-600 to-purple-600 border border-pink-400/30 text-white font-bold px-4 py-2 rounded-full text-center shadow-lg shadow-pink-900/30 flex items-center gap-2">
+                <span class="text-xs bg-white text-pink-700 px-1.5 py-0.5 rounded-full font-extrabold uppercase">શ્રી</span>
+                <span class="text-base tracking-wide">રામાધણી ઇવેન્ટ</span>
+            </div>
+
+            <!-- HOME BUTTON (Matching Yellow Pill Style) -->
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bg-brandYellow hover:bg-brandYellowDark text-black font-extrabold px-5 py-2 rounded-xl text-sm transition-all duration-200 shadow-md active:scale-95 flex items-center gap-1">
+                <i class="fa-solid fa-house text-xs"></i> HOME
+            </button>
+        </header>
+
+        <!-- CONTENT AREA -->
+        <main class="w-full flex-grow px-3 py-4 space-y-5">
+            
+            <!-- BANNER / SLIDER SECTION -->
+            <div class="relative w-full rounded-2xl overflow-hidden border-2 border-amber-500/30 bg-gray-900 shadow-xl group">
+                <!-- Slider Image Display -->
+                <div id="slider-container" class="relative w-full h-56 md:h-64 overflow-hidden bg-gradient-to-b from-gray-800 to-black">
+                    <!-- Slide 1 -->
+                    <div class="slide active absolute inset-0 transition-opacity duration-500 ease-in-out flex flex-col items-center justify-center p-4 text-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80');">
+                        <span class="bg-amber-500 text-black text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider mb-2">ભવ્ય આયોજન</span>
+                        <h2 class="text-2xl font-bold text-amber-300 drop-shadow-md">રામાધણી ઉત્સવ ૨૦૨૬</h2>
+                        <p class="text-xs text-gray-200 mt-2 max-w-xs leading-relaxed">તમામ ભક્તો અને સભ્યોનું હાર્દિક સ્વાગત છે. તમારું બુકિંગ સ્ટેટસ નીચે સર્ચ કરો.</p>
+                        <div class="mt-3 flex items-center gap-2 text-xs text-yellow-400 font-semibold bg-black/60 px-3 py-1 rounded-full border border-yellow-500/30">
+                            <i class="fa-regular fa-calendar-check"></i> તા: ૧૫-૧૧-૨૦૨૬ | સમય: બપોરે ૩:૦૦
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="slide hidden absolute inset-0 transition-opacity duration-500 ease-in-out flex flex-col items-center justify-center p-4 text-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80');">
+                        <span class="bg-rose-500 text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider mb-2">ટોકન વિગત</span>
+                        <h2 class="text-2xl font-bold text-white drop-shadow-md">ઓનલાઇન સર્ચ સિસ્ટમ</h2>
+                        <p class="text-xs text-gray-200 mt-2 max-w-xs">તમારા મોબાઇલ નંબર અથવા ટોકન નંબરથી સ્ટેટસ તાત્કાલિક મેળવો.</p>
+                        <div class="mt-3 flex items-center gap-2 text-xs text-pink-300 font-semibold bg-black/60 px-3 py-1 rounded-full border border-pink-500/30">
+                            <i class="fa-solid fa-phone"></i> હેલ્પલાઇન: +૯૧ ૯૮૭૬૫ ૪૩૨૧૦
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orange Slider Arrow Left -->
+                <button onclick="prevSlide()" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-amber-500 hover:bg-amber-400 active:scale-90 text-black font-bold flex items-center justify-center shadow-lg transition-transform z-10">
+                    <i class="fa-solid fa-chevron-left text-lg"></i>
+                </button>
+
+                <!-- Orange Slider Arrow Right -->
+                <button onclick="nextSlide()" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-amber-500 hover:bg-amber-400 active:scale-90 text-black font-bold flex items-center justify-center shadow-lg transition-transform z-10">
+                    <i class="fa-solid fa-chevron-right text-lg"></i>
+                </button>
+
+                <!-- Slide Dots Indicator -->
+                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+                    <button onclick="goToSlide(0)" class="dot w-2.5 h-2.5 rounded-full bg-amber-500 transition-all"></button>
+                    <button onclick="goToSlide(1)" class="dot w-2.5 h-2.5 rounded-full bg-gray-500 transition-all"></button>
+                </div>
+            </div>
+
+            <!-- INTERACTIVE BUTTONS SECTION (Inspired by Screenshot) -->
+            <div class="space-y-3 pt-2">
+                
+                <!-- PRIMARY SEARCH LAUNCH BUTTON -->
+                <button onclick="scrollToSearch()" class="w-full bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500 hover:brightness-110 active:scale-[0.98] text-black font-bold py-4 px-6 rounded-2xl shadow-lg shadow-amber-500/20 border-2 border-yellow-300/40 flex items-center justify-between text-lg transition-all duration-200">
+                    <span class="flex items-center gap-3">
+                        <span class="w-9 h-9 rounded-full bg-black/10 flex items-center justify-center text-black">
+                            <i class="fa-solid fa-magnifying-glass text-xl"></i>
+                        </span>
+                        ટોકન સ્ટેટસ સર્ચ કરો
+                    </span>
+                    <i class="fa-solid fa-arrow-right text-base"></i>
+                </button>
+
+                <!-- BUTTON 1 -->
+                <button onclick="showInfoModal('ભાગ ૧ માહિતી', 'રામાધણી ઇવેન્ટ ભાગ-૧ ના બુકિંગ અને પાસ વિતરણ પૂર્ણ થઈ ગયેલ છે. તમામ ટોકનધારકોને સમયસર પહોંચવા વિનંતી.')" class="w-full bg-amber-500 hover:bg-amber-400 active:scale-[0.98] text-black font-extrabold py-3.5 px-6 rounded-2xl shadow-md text-base transition-all duration-200 flex items-center justify-between">
+                    <span>ભાગ ૧ માહિતી માટે ક્લિક કરો.</span>
+                    <i class="fa-solid fa-chevron-right text-sm"></i>
+                </button>
+
+                <!-- BUTTON 2 -->
+                <button onclick="showInfoModal('ભાગ ૨ માહિતી', 'ભાગ-૨ નું ઓનલાઇન રજીસ્ટ્રેશન ચાલુ છે. તમારી પાત્રતા ચકાસવા માટે તમારો રજિસ્ટર્ડ મોબાઇલ નંબર વાપરો.')" class="w-full bg-amber-500 hover:bg-amber-400 active:scale-[0.98] text-black font-extrabold py-3.5 px-6 rounded-2xl shadow-md text-base transition-all duration-200 flex items-center justify-between">
+                    <span>ભાગ ૨ માહિતી માટે ક્લિક કરો.</span>
+                    <i class="fa-solid fa-chevron-right text-sm"></i>
+                </button>
+
+                <!-- BUTTON 3 -->
+                <button onclick="showInfoModal('નિયમો અને શરતો', '૧. પ્રવેશ મેળવતી વખતે ઓરિજિનલ ટોકન મેસેજ બતાવવો ફરજિયાત છે.<br>૨. એક ટોકન પર માત્ર ૧ જ વ્યક્તિને પ્રવેશ મળશે.')" class="w-full bg-amber-500 hover:bg-amber-400 active:scale-[0.98] text-black font-extrabold py-3.5 px-6 rounded-2xl shadow-md text-base transition-all duration-200 flex items-center justify-between">
+                    <span>ઇવેન્ટ નિયમો જોવા માટે ક્લિક કરો.</span>
+                    <i class="fa-solid fa-chevron-right text-sm"></i>
+                </button>
+            </div>
+
+            <!-- TOKEN / MOBILE SEARCH FEATURE SECTION -->
+            <section id="search-section" class="pt-4 scroll-mt-20">
+                <div class="bg-gradient-to-b from-gray-900 to-cardBg p-5 rounded-3xl border border-gray-800 shadow-2xl space-y-4">
+                    
+                    <div class="text-center space-y-1">
+                        <div class="inline-flex items-center gap-2 text-amber-400 text-sm font-semibold bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+                            <i class="fa-solid fa-shield-halved"></i> સુરક્ષિત ઓનલાઇન ચકાસણી
+                        </div>
+                        <h3 class="text-xl font-bold text-white">ટોકન / બુકિંગ સ્ટેટસ સર્ચ</h3>
+                        <p class="text-xs text-gray-400">તમારો મોબાઇલ નંબર અથવા ટોકન નંબર દાખલ કરો</p>
+                    </div>
+
+                    <!-- SEARCH INPUT BOX -->
+                    <div class="space-y-3">
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                                <i class="fa-solid fa-search"></i>
+                            </div>
+                            <input type="text" id="searchInput" placeholder="જેમ કે: 9876543210 અથવા RD-101" class="w-full pl-10 pr-10 py-3.5 bg-black/70 border-2 border-gray-700 focus:border-amber-500 rounded-xl text-white placeholder-gray-500 text-sm focus:outline-none transition-colors">
+                            <button onclick="clearSearch()" id="clearBtn" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center text-gray-400 hover:text-white">
+                                <i class="fa-solid fa-circle-xmark"></i>
+                            </button>
+                        </div>
+
+                        <button onclick="performSearch()" class="w-full bg-rose-600 hover:bg-rose-500 active:scale-[0.98] text-white font-bold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 text-base">
+                            <i class="fa-solid fa-magnifying-glass"></i> સર્ચ કરો (Search)
+                        </button>
+                    </div>
+
+                    <!-- QUICK DEMO SAMPLES -->
+                    <div class="pt-2 border-t border-gray-800">
+                        <p class="text-xs text-gray-400 mb-2 font-medium">ટ્રાય કરવા માટે નીચેનામાંથી કિલક કરો:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="setSearchDemo('9876543210')" class="text-xs bg-gray-800 hover:bg-gray-700 text-amber-300 px-2.5 py-1 rounded-lg border border-gray-700 transition">
+                                📱 9876543210
+                            </button>
+                            <button onclick="setSearchDemo('RD-101')" class="text-xs bg-gray-800 hover:bg-gray-700 text-amber-300 px-2.5 py-1 rounded-lg border border-gray-700 transition">
+                                🎫 RD-101
+                            </button>
+                            <button onclick="setSearchDemo('RD-103')" class="text-xs bg-gray-800 hover:bg-gray-700 text-amber-300 px-2.5 py-1 rounded-lg border border-gray-700 transition">
+                                🎫 RD-103 (Pending)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- SEARCH RESULT CONTAINER -->
+                    <div id="resultBox" class="hidden pt-3 border-t border-gray-800">
+                        <!-- Dynamic content injected via JS -->
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="w-full bg-black/90 border-t border-gray-800 py-4 px-4 text-center text-xs text-gray-500 space-y-1">
+            <p>© ૨૦૨૬ રામાધણી ઇવેન્ટ મંડળ. તમામ હકો અનામત છે.</p>
+            <p class="text-[11px] text-gray-600">ડિઝાઇન: મહાવીર ફ્રેન્ડ ગ્રુપ શૈલી આધારિત</p>
+        </footer>
+
+    </div>
+
+    <!-- INFO MODAL / POPUP -->
+    <div id="infoModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-amber-500/40 w-full max-w-sm rounded-2xl p-5 shadow-2xl relative space-y-4 animate-fade-in">
+            <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                <h3 id="modalTitle" class="text-lg font-bold text-amber-400">માહિતી</h3>
+                <button onclick="closeInfoModal()" class="text-gray-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="modalBody" class="text-sm text-gray-200 leading-relaxed">
+                <!-- Modal content -->
+            </div>
+            <button onclick="closeInfoModal()" class="w-full bg-amber-500 text-black font-bold py-2.5 rounded-xl hover:bg-amber-400">
+                બંધ કરો (Close)
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // MOCK DATASET FOR RAMADHANI EVENT TOKENS
+        const tokenDatabase = [
+            {
+                tokenNo: "RD-101",
+                mobile: "9876543210",
+                name: "રમેશભાઈ ચૌહાણ",
+                status: "બુક થયેલ છે (Confirmed)",
+                statusClass: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
+                seats: "૨ પાસ (ટોકન કન્ફર્મ)",
+                zone: "ઝોન-A (વી.આઇ.પી)",
+                date: "15-11-2026"
+            },
+            {
+                tokenNo: "RD-102",
+                mobile: "9825012345",
+                name: "મહેશકુમાર પરમાર",
+                status: "બુક થયેલ છે (Confirmed)",
+                statusClass: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
+                seats: "૧ પાસ (ટોકન કન્ફર્મ)",
+                zone: "ઝોન-B",
+                date: "15-11-2026"
+            },
+            {
+                tokenNo: "RD-103",
+                mobile: "9909988776",
+                name: "જીગ્નેશભાઈ સોલંકી",
+                status: "પેન્ડિંગ (Pending Verification)",
+                statusClass: "bg-amber-500/20 text-amber-400 border-amber-500/30",
+                seats: "૧ પાસ (ચકાસણી ચાલુ)",
+                zone: "ઝોન-C",
+                date: "15-11-2026"
+            },
+            {
+                tokenNo: "RD-104",
+                mobile: "9712345678",
+                name: "ભાવેશભાઈ ઠાકોર",
+                status: "બુક થયેલ છે (Confirmed)",
+                statusClass: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
+                seats: "૪ પાસ (ફેમિલી ટોકન)",
+                zone: "ઝોન-A",
+                date: "15-11-2026"
+            }
+        ];
+
+        // SLIDER LOGIC
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('hidden');
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.add('hidden');
+                    slide.classList.remove('active');
+                }
+            });
+
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-gray-500');
+                    dot.classList.add('bg-amber-500');
+                } else {
+                    dot.classList.remove('bg-amber-500');
+                    dot.classList.add('bg-gray-500');
+                }
+            });
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+
+        function prevSlide() {
+            let prev = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prev);
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        // Auto Slider Cycle
+        setInterval(nextSlide, 5000);
+
+        // SEARCH FUNCTIONALITY
+        const searchInput = document.getElementById('searchInput');
+        const clearBtn = document.getElementById('clearBtn');
+        const resultBox = document.getElementById('resultBox');
+
+        searchInput.addEventListener('input', function() {
+            if (this.value.length > 0) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+                resultBox.classList.add('hidden');
+            }
+        });
+
+        function clearSearch() {
+            searchInput.value = '';
+            clearBtn.classList.add('hidden');
+            resultBox.classList.add('hidden');
+            searchInput.focus();
+        }
+
+        function setSearchDemo(value) {
+            searchInput.value = value;
+            clearBtn.classList.remove('hidden');
+            performSearch();
+        }
+
+        function scrollToSearch() {
+            const el = document.getElementById('search-section');
+            el.scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => {
+                searchInput.focus();
+            }, 500);
+        }
+
+        function performSearch() {
+            const query = searchInput.value.trim().toUpperCase();
+
+            if (!query) {
+                showInfoModal("અલર્ટ", "કૃપા કરીને મોબાઈલ નંબર અથવા ટોકન નંબર દાખલ કરો.");
+                return;
+            }
+
+            // Filter logic: Match token or mobile number
+            const matched = tokenDatabase.filter(item => 
+                item.tokenNo.toUpperCase() === query || 
+                item.mobile === query ||
+                item.tokenNo.replace('-', '').toUpperCase() === query
+            );
+
+            resultBox.classList.remove('hidden');
+
+            if (matched.length > 0) {
+                let html = matched.map(record => `
+                    <div class="bg-black/60 border border-amber-500/40 rounded-2xl p-4 space-y-3 relative overflow-hidden shadow-xl">
+                        <div class="flex items-center justify-between border-b border-gray-800 pb-2">
+                            <span class="text-xs font-semibold text-gray-400">ટોકન સ્ટેટસ કાર્ડ</span>
+                            <span class="text-xs px-2.5 py-1 rounded-full border ${record.statusClass} font-bold flex items-center gap-1">
+                                <i class="fa-solid fa-circle-check text-[10px]"></i> ${record.status}
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <div>
+                                <span class="text-xs text-gray-400 block">સભ્યનું નામ</span>
+                                <span class="font-bold text-amber-300">${record.name}</span>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-400 block">ટોકન નંબર</span>
+                                <span class="font-extrabold text-rose-400 tracking-wider">${record.tokenNo}</span>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-400 block">મોબાઈલ નંબર</span>
+                                <span class="font-semibold text-white">${record.mobile}</span>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-400 block">બેઠક / પાસ વિગત</span>
+                                <span class="font-semibold text-gray-200">${record.seats}</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-500/10 border border-amber-500/20 rounded-xl p-2.5 text-xs text-amber-200 flex items-center justify-between">
+                            <span><i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> ${record.zone}</span>
+                            <span><i class="fa-regular fa-clock text-amber-400 mr-1"></i> તા: ${record.date}</span>
+                        </div>
+
+                        <div class="text-[11px] text-gray-400 text-center pt-1 border-t border-gray-800/80">
+                            ✓ રામાધણી ઇવેન્ટ સિસ્ટમ દ્વારા પ્રમાણિત ડેટા
+                        </div>
+                    </div>
+                `).join('');
+
+                resultBox.innerHTML = html;
+            } else {
+                resultBox.innerHTML = `
+                    <div class="bg-rose-950/30 border border-rose-800/50 rounded-2xl p-4 text-center space-y-2">
+                        <div class="w-10 h-10 bg-rose-500/20 text-rose-400 rounded-full flex items-center justify-center mx-auto text-xl">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base">કોઈ ડેટા મળ્યો નથી!</h4>
+                        <p class="text-xs text-gray-300">તમે દાખલ કરેલ <span class="text-amber-400 font-bold">'${query}'</span> માટે કોઈ બુકિંગ રેકોર્ડ મળેલ નથી. કૃપા કરીને યોગ્ય નંબર ચકાસો.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // MODAL HANDLERS
+        function showInfoModal(title, content) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBody').innerHTML = content;
+            document.getElementById('infoModal').classList.remove('hidden');
+        }
+
+        function closeInfoModal() {
+            document.getElementById('infoModal').classList.add('hidden');
+        }
+
+        // CLOSE MODAL ON CLICK OUTSIDE
+        document.getElementById('infoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeInfoModal();
+            }
+        });
+    </script>
+</body>
+</html>
