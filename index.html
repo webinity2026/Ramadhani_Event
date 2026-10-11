@@ -17,7 +17,6 @@
             color: #0d47a1;
             padding-bottom: 25px;
         }
-        /* Header */
         header {
             background: linear-gradient(135deg, #0d47a1, #1e88e5);
             color: white;
@@ -35,13 +34,11 @@
             opacity: 0.95;
             font-weight: 500;
         }
-
         .container {
             max-width: 500px;
             margin: 20px auto;
             padding: 0 15px;
         }
-
         .card {
             background: white;
             border-radius: 14px;
@@ -50,7 +47,6 @@
             box-shadow: 0 4px 15px rgba(13, 71, 161, 0.08);
             border: 1px solid #e3f2fd;
         }
-
         .card-title {
             font-size: 20px;
             font-weight: 700;
@@ -60,8 +56,6 @@
             border-bottom: 2px solid #e3f2fd;
             padding-bottom: 8px;
         }
-
-        /* Price & Event Info Box */
         .price-badge {
             background-color: #e3f2fd;
             color: #0d47a1;
@@ -73,7 +67,6 @@
             margin-bottom: 12px;
             border: 2px dashed #1e88e5;
         }
-
         .event-info-box {
             background-color: #0d47a1;
             color: white;
@@ -85,7 +78,6 @@
             margin-bottom: 15px;
             line-height: 1.6;
         }
-
         .prize-list {
             list-style: none;
         }
@@ -103,7 +95,6 @@
         .prize-2 { background-color: #f5f5f5; color: #424242; border-left: 5px solid #9e9e9e; }
         .prize-3 { background-color: #f0f4f8; color: #1a365d; border-left: 5px solid #64b5f6; }
         .prize-4 { background-color: #e8f5e9; color: #2e7d32; border-left: 5px solid #4caf50; }
-        
         .total-prizes {
             text-align: center;
             margin-top: 15px;
@@ -114,8 +105,6 @@
             padding: 10px;
             border-radius: 8px;
         }
-
-        /* Search Section */
         .search-box {
             display: flex;
             gap: 10px;
@@ -142,8 +131,6 @@
             font-weight: 600;
             cursor: pointer;
         }
-
-        /* Result Section */
         .result-card {
             background: white;
             border-radius: 10px;
@@ -162,9 +149,7 @@
             border-bottom: none;
         }
         .res-label { font-weight: 600; color: #555; }
-        .res-val { font-weight: 700; color: #0d47a1; }
-
-        /* Contact & Office Section */
+        .res-val { font-weight: 700; color: #0d47a1; text-align: right; }
         .contact-box {
             background-color: #0d47a1;
             color: white;
@@ -197,7 +182,6 @@
             text-align: center;
             line-height: 1.5;
         }
-
         .managed-by {
             text-align: center;
             font-size: 13px;
@@ -217,7 +201,6 @@
 
     <div class="container">
 
-        <!-- Prize Info Card -->
         <div class="card">
             <div class="price-badge">ટિકિટ કિંમત: ₹299</div>
 
@@ -248,25 +231,23 @@
             <div class="total-prizes">આમ નાના મોટા અને આકર્ષક કુલ 555 ઇનામો!</div>
         </div>
 
-        <!-- Search Card -->
         <div class="card">
             <div class="card-title">સભ્ય સર્ચ કરો</div>
-            <p style="font-size: 14px; color: #666; text-align: center; margin-bottom: 10px;">તમારો ટોકન નંબર અથવા મો. નંબર નાખી સર્ચ કરો:</p>
+            <p style="font-size: 14px; color: #666; text-align: center; margin-bottom: 10px;">તમારો ટોકન નંબર નાખી સર્ચ કરો:</p>
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="ટોકન નં / મોબાઈલ નંબર">
+                <input type="text" id="searchInput" placeholder="ટોકન નંબર લખો">
                 <button onclick="searchMember()">સર્ચ</button>
             </div>
 
             <div id="resultCard" class="result-card">
                 <div class="result-row"><span class="res-label">ટોકન નંબર:</span><span class="res-val" id="resToken">-</span></div>
-                <div class="result-row"><span class="res-label">નામ:</span><span class="res-val" id="resName">-</span></div>
-                <div class="result-row"><span class="res-label">મોબાઈલ:</span><span class="res-val" id="resMobile">-</span></div>
-                <div class="result-row"><span class="res-label">સ્ટેટસ:</span><span class="res-val" id="resStatus" style="color: #2e7d32;">-</span></div>
+                <div class="result-row"><span class="res-label">સભ્ય નામ:</span><span class="res-val" id="resName">-</span></div>
+                <div class="result-row"><span class="res-label">સરનામું:</span><span class="res-val" id="resAddress">-</span></div>
+                <div class="result-row"><span class="res-label">એજન્ટ નામ:</span><span class="res-val" id="resAgent">-</span></div>
             </div>
-            <p id="noResult" style="text-align: center; color: red; display: none; margin-top: 12px; font-weight: 600;">કોઈ વિગત મળી નથી. કૃપા કરીને સાચો નંબર નાખો.</p>
+            <p id="noResult" style="text-align: center; color: red; display: none; margin-top: 12px; font-weight: 600;">કોઈ વિગત મળી નથી. કૃપા કરીને સાચો ટોકન નંબર નાખો.</p>
         </div>
 
-        <!-- Contact & Office Section -->
         <div class="contact-box">
             <h3>📞 સંપર્ક કરો</h3>
             <div class="contact-item">Jigarbhai: <a href="tel:9726394997">9726394997</a></div>
@@ -285,8 +266,8 @@
     </div>
 
     <script>
-        // Google Sheet Apps Script API URL
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyUW2ha8FYMyk1HweBvw36j0I-gsYom5he_yRB6B1jjwL1Fn989QN_l-8IR3f1gPMQr8g/exec";
+        // Google Sheet Apps Script API URL (તમારી લિંક અહીં મુકવાની રહેશે)
+        const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
 
         async function searchMember() {
             const query = document.getElementById('searchInput').value.trim();
@@ -294,17 +275,17 @@
             const noResult = document.getElementById('noResult');
 
             if (!query) {
-                alert("કૃપા કરીને ટોકન અથવા મોબાઈલ નંબર લખો!");
+                alert("કૃપા કરીને ટોકન નંબર લખો!");
                 return;
             }
 
-            // ડેમો સેટઅપ (જો API જોડેલી ન હોય)
+            // ડેમો સેટઅપ (જો API લિંક નાખેલી ન હોય)
             if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
-                if (query === "101" || query === "RD-101" || query === "9726394997") {
+                if (query === "101" || query === "RD-101") {
                     document.getElementById('resToken').innerText = "RD-101";
-                    document.getElementById('resName').innerText = "સેમ્પલ મેમ્બર";
-                    document.getElementById('resMobile').innerText = "9726394997";
-                    document.getElementById('resStatus').innerText = "Confirmed";
+                    document.getElementById('resName').innerText = "રમેશભાઈ પટેલ";
+                    document.getElementById('resAddress').innerText = "સામખીયારી, કચ્છ";
+                    document.getElementById('resAgent').innerText = "સુરેશભાઈ";
                     resultCard.style.display = 'block';
                     noResult.style.display = 'none';
                 } else {
@@ -320,15 +301,14 @@
                 const data = await response.json();
 
                 const found = data.find(item => 
-                    item.token.toLowerCase() === query.toLowerCase() || 
-                    item.mobile === query
+                    item.token.toLowerCase() === query.toLowerCase()
                 );
 
                 if (found) {
                     document.getElementById('resToken').innerText = found.token;
                     document.getElementById('resName').innerText = found.name;
-                    document.getElementById('resMobile').innerText = found.mobile;
-                    document.getElementById('resStatus').innerText = found.status;
+                    document.getElementById('resAddress').innerText = found.address;
+                    document.getElementById('resAgent').innerText = found.agent;
                     resultCard.style.display = 'block';
                     noResult.style.display = 'none';
                 } else {
