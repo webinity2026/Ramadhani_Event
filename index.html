@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>રામાધણી મહાઉત્સવ - Ramadhani Event</title>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>રામાધણી મહાઈનામી ઇવેન્ટ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -14,93 +14,95 @@
         }
         body {
             background-color: #f0f4f8;
-            color: #1a365d;
+            color: #0d47a1;
+            padding-bottom: 20px;
         }
-        /* Header & Navigation */
+        /* Header */
         header {
             background: linear-gradient(135deg, #0d47a1, #1e88e5);
             color: white;
-            padding: 20px 15px;
+            padding: 25px 15px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         header h1 {
             font-size: 26px;
-            margin-bottom: 5px;
             font-weight: 700;
+            margin-bottom: 5px;
         }
         header p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #0a3880;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav button {
-            flex: 1;
-            max-width: 200px;
-            padding: 14px;
-            border: none;
-            background: transparent;
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            border-bottom: 3px solid transparent;
-        }
-        nav button.active {
-            border-bottom: 3px solid #ffca28;
-            background-color: rgba(255, 255, 255, 0.1);
+            font-size: 15px;
+            opacity: 0.95;
         }
 
-        /* Container */
         .container {
-            max-width: 600px;
+            max-width: 500px;
             margin: 20px auto;
             padding: 0 15px;
         }
 
-        .page {
-            display: none;
-        }
-        .page.active {
-            display: block;
-        }
-
-        /* History Card */
         .card {
             background: white;
-            border-radius: 12px;
+            border-radius: 14px;
             padding: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border-top: 5px solid #1e88e5;
             margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(13, 71, 161, 0.08);
+            border: 1px solid #e3f2fd;
         }
-        .card h2 {
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
             color: #0d47a1;
-            font-size: 22px;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+            text-align: center;
             border-bottom: 2px solid #e3f2fd;
             padding-bottom: 8px;
         }
-        .card p {
-            line-height: 1.8;
+
+        /* Price & Prize Box */
+        .price-badge {
+            background-color: #e3f2fd;
+            color: #0d47a1;
+            text-align: center;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border: 2px dashed #1e88e5;
+        }
+
+        .prize-list {
+            list-style: none;
+        }
+        .prize-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 8px;
             font-size: 16px;
-            color: #333;
-            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .prize-1 { background-color: #fff8e1; color: #b78103; border-left: 5px solid #ffb300; }
+        .prize-2 { background-color: #f5f5f5; color: #424242; border-left: 5px solid #9e9e9e; }
+        .prize-3 { background-color: #efebe9; color: #4e342e; border-left: 5px solid #8d6e63; }
+        
+        .total-prizes {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e88e5;
         }
 
         /* Search Section */
         .search-box {
             display: flex;
             gap: 10px;
-            margin-bottom: 20px;
+            margin-top: 10px;
         }
         .search-box input {
             flex: 1;
@@ -111,10 +113,10 @@
             outline: none;
         }
         .search-box input:focus {
-            border-color: #1e88e5;
+            border-color: #0d47a1;
         }
         .search-box button {
-            background-color: #1e88e5;
+            background-color: #0d47a1;
             color: white;
             border: none;
             padding: 12px 20px;
@@ -124,151 +126,135 @@
             cursor: pointer;
         }
 
-        /* Result Display */
+        /* Result Section */
         .result-card {
+            background: #f8bbd0;
             background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
             display: none;
-            border: 1px solid #bbdefb;
+            border: 2px solid #1e88e5;
         }
-        .result-item {
+        .result-row {
             display: flex;
             justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
         }
-        .result-item:last-child {
+        .result-row:last-child {
             border-bottom: none;
         }
-        .label {
-            font-weight: 600;
-            color: #555;
-        }
-        .value {
-            font-weight: 700;
-            color: #0d47a1;
-        }
-        .status-badge {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-        }
+        .res-label { font-weight: 600; color: #555; }
+        .res-val { font-weight: 700; color: #0d47a1; }
 
-        footer {
+        /* Footer / Contact */
+        .contact-box {
             text-align: center;
-            padding: 20px;
+            background-color: #0d47a1;
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        .contact-box a {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .managed-by {
+            text-align: center;
+            font-size: 13px;
             color: #666;
-            font-size: 14px;
-            margin-top: 30px;
+            margin-top: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>🚩 રામાધણી મહાઉત્સવ 🚩</h1>
-        <p>શ્રી રામાપીર સેવા મંડળ - આપનું હાર્દિક સ્વાગત કરે છે</p>
+        <h1>🚩 રામાધણી મહાઈનામી ઈવેન્ટ 🚩</h1>
+        <p>ભાગ્યશાળી ઈનામી યોજના</p>
     </header>
 
-    <nav>
-        <button class="tab-btn active" onclick="showPage('history', this)">ઇતિહાસ</button>
-        <button class="tab-btn" onclick="showPage('search', this)">ટોકન સર્ચ</button>
-    </nav>
-
     <div class="container">
-        
-        <!-- Page 1: History -->
-        <div id="history" class="page active">
-            <div class="card">
-                <h2>🚩 રામાધણી મહિમા અને ઇતિહાસ</h2>
-                <p>અલખધણી શ્રી રામાપીર (રામદેવપીર) નકલંક અવતાર તરીકે પૂજાય છે. પોખરણગઢ અને રણુજાધામમાં પરચા પૂરનાર રામાપીર ભક્તોના દુઃખ હરનારા અને સૌને સમદ્રષ્ટિથી જોનારા લોકદેવ છે.</p>
-                <p>રામાધણી મહાઉત્સવ એ આપણી આસ્થા, ભક્તિ અને સંગઠનનું પ્રતીક છે. આ ઇવેન્ટનો મુખ્ય હેતુ ધાર્મિક ઉત્સવની સાથે ભાઈચારો અને સમાજ સેવા કરવાનો છે.</p>
-            </div>
-            <div class="card">
-                <h2>🙏 દર્શન અને ઉત્સવ વિગત</h2>
-                <p>ઇવેન્ટ દરમિયાન મહાઆરતી, કથા-પારાયણ, મહાપ્રસાદ અને ભજન સંધ્યાનું ભવ્ય આયોજન કરવામાં આવે છે. તમામ ભક્તોને શાંતિપૂર્વક દર્શન અને પ્રસાદનો લાભ મળે તે માટે ટોકન સિસ્ટમ બનાવવામાં આવી છે.</p>
-            </div>
+
+        <!-- Prize Info Card -->
+        <div class="card">
+            <div class="price-badge">🎟️ ટિકિટ કિંમત: ₹299</div>
+            
+            <div class="card-title">🎁 મુખ્ય ઈનામો 🎁</div>
+            <ul class="prize-list">
+                <li class="prize-item prize-1">
+                    <span>🥇 પહેલું ઈનામ</span>
+                    <span>₹ 8,00,000</span>
+                </li>
+                <li class="prize-item prize-2">
+                    <span>🥈 બીજું ઈનામ</span>
+                    <span>₹ 4,50,000</span>
+                </li>
+                <li class="prize-item prize-3">
+                    <span>🥉 ત્રીજું ઈનામ</span>
+                    <span>₹ 1,80,000</span>
+                </li>
+            </ul>
+            <div class="total-prizes">🎉 કુલ 555 આકર્ષક ઈનામો!</div>
         </div>
 
-        <!-- Page 2: Token Search -->
-        <div id="search" class="page">
-            <div class="card">
-                <h2>🔍 તમારું ટોકન સર્ચ કરો</h2>
-                <p style="font-size: 14px; color: #666; margin-bottom: 15px;">તમારો ટોકન નંબર (જેમ કે RD-101) અથવા રજિસ્ટર્ડ મોબાઈલ નંબર નાખીને વિગત ચેક કરો:</p>
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="ટોકન નં / મો. નંબર">
-                    <button onclick="searchToken()">સર્ચ</button>
-                </div>
+        <!-- Search Card -->
+        <div class="card">
+            <div class="card-title">🔍 સભ્ય સર્ચ કરો</div>
+            <p style="font-size: 14px; color: #666; text-align: center; margin-bottom: 10px;">તમારો ટોકન નંબર અથવા મો. નંબર નાખી સર્ચ કરો:</p>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="ટોકન નં / મોબાઈલ નંબર">
+                <button onclick="searchMember()">સર્ચ</button>
             </div>
 
             <div id="resultCard" class="result-card">
-                <h3 style="color: #0d47a1; margin-bottom: 15px; text-align: center;">બુકિંગ વિગત</h3>
-                <div class="result-item">
-                    <span class="label">ટોકન નંબર:</span>
-                    <span class="value" id="resToken">-</span>
-                </div>
-                <div class="result-item">
-                    <span class="label">સભ્યનું નામ:</span>
-                    <span class="value" id="resName">-</span>
-                </div>
-                <div class="result-item">
-                    <span class="label">મોબાઈલ નંબર:</span>
-                    <span class="value" id="resMobile">-</span>
-                </div>
-                <div class="result-item">
-                    <span class="label">સ્ટેટસ:</span>
-                    <span class="value status-badge" id="resStatus">-</span>
-                </div>
-                <div class="result-item">
-                    <span class="label">વિગત / રમાર્ક:</span>
-                    <span class="value" id="resDetails">-</span>
-                </div>
+                <div class="result-row"><span class="res-label">ટોકન નંબર:</span><span class="res-val" id="resToken">-</span></div>
+                <div class="result-row"><span class="res-label">નામ:</span><span class="res-val" id="resName">-</span></div>
+                <div class="result-row"><span class="res-label">મોબાઈલ:</span><span class="res-val" id="resMobile">-</span></div>
+                <div class="result-row"><span class="res-label">સ્ટેટસ:</span><span class="res-val" id="resStatus" style="color: #2e7d32;">-</span></div>
             </div>
-            
-            <p id="noResult" style="text-align: center; color: red; display: none; margin-top: 15px;">કોઈ માહિતી મળી નથી. કૃપા કરીને સાચો ટોકન કે મોબાઈલ નંબર નાખો.</p>
+            <p id="noResult" style="text-align: center; color: red; display: none; margin-top: 12px; font-weight: 600;">કોઈ વિગત મળી નથી. કૃપા કરીને સાચો નંબર નાખો.</p>
+        </div>
+
+        <!-- Contact & Managed By -->
+        <div class="contact-box">
+            <p style="font-size: 14px; margin-bottom: 5px;">📞 સંપર્ક કરો:</p>
+            <a href="tel:9726394997">9726394997</a> &nbsp;|&nbsp; <a href="tel:9879216150">9879216150</a>
+        </div>
+
+        <div class="managed-by">
+            Managed By: <strong>WEBINITY AWARENESS</strong>
         </div>
 
     </div>
 
-    <footer>
-        <p>© ૨૦૨૬ રામાધણી મહાઉત્સવ સમિતિ. સર્વાધિકાર સુરક્ષિત.</p>
-    </footer>
-
     <script>
-        // Page Navigation
-        function showPage(pageId, btn) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            
-            document.getElementById(pageId).classList.add('active');
-            btn.classList.add('active');
-        }
-
-        // Google Sheet Apps Script API URL (અહીં તમારી API લિંક મૂકવી)
+        // Google Sheet Apps Script API URL
         const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
 
-        async function searchToken() {
+        async function searchMember() {
             const query = document.getElementById('searchInput').value.trim();
             const resultCard = document.getElementById('resultCard');
             const noResult = document.getElementById('noResult');
 
             if (!query) {
-                alert("કૃપા કરીને નંબર લખો!");
+                alert("કૃપા કરીને ટોકન અથવા મોબાઈલ નંબર લખો!");
                 return;
             }
 
-            // જો Google Sheet API કનેક્ટેડ ન હોય તો સેમ્પલ સર્ચ બતાવશે
+            // ડેમો સેટઅપ (જો API જોડેલી ન હોય)
             if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
-                if (query === "101" || query === "RD-101" || query === "9876543210") {
+                if (query === "101" || query === "RD-101" || query === "9726394997") {
                     document.getElementById('resToken').innerText = "RD-101";
-                    document.getElementById('resName').innerText = "રમેશભાઈ પટેલ";
-                    document.getElementById('resMobile').innerText = "9876543210";
+                    document.getElementById('resName').innerText = "સેમ્પલ મેમ્બર";
+                    document.getElementById('resMobile').innerText = "9726394997";
                     document.getElementById('resStatus').innerText = "Confirmed";
-                    document.getElementById('resDetails').innerText = "૨ સભ્યો / પાસ આપેલ છે";
                     resultCard.style.display = 'block';
                     noResult.style.display = 'none';
                 } else {
@@ -278,7 +264,7 @@
                 return;
             }
 
-            // Google Sheet ડેટા ફેચ કરવો
+            // Google Sheet ડેટા લાઈવ મેળવવા
             try {
                 const response = await fetch(SCRIPT_URL);
                 const data = await response.json();
@@ -293,7 +279,6 @@
                     document.getElementById('resName').innerText = found.name;
                     document.getElementById('resMobile').innerText = found.mobile;
                     document.getElementById('resStatus').innerText = found.status;
-                    document.getElementById('resDetails').innerText = found.details;
                     resultCard.style.display = 'block';
                     noResult.style.display = 'none';
                 } else {
@@ -301,7 +286,7 @@
                     noResult.style.display = 'block';
                 }
             } catch (err) {
-                alert("ડેટા મેળવવામાં ભૂલ થઈ રહી છે.");
+                alert("ડેટા લોડ કરવામાં ભૂલ થઈ રહી છે.");
             }
         }
     </script>
