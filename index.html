@@ -267,25 +267,37 @@
 
     <script>
         // Google Sheet Apps Script API URL (તમારી લિંક અહીં મુકવાની રહેશે)
+
+
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz1qDTC0_md1MeTdlwEM2V4EqOQgFcJnLXMsmvW37CCybBaOBo3rRGAG-NerXg_Bk6sUQ/exec";
 
+ // નંબર માંથી આગળના વધારાના 0 દૂર કરવા માટેનું ફંક્શન
+        function normalizeToken(val) {
+            if (!val) return "";
+            // જો અંક હોય તો આગળના 0 દૂર કરશે (જેમ કે 001 કે 01 -> 1)
+            let str = val.toString().trim().toLowerCase();
+            return str.replace(/^0+/, '');
+        }
+
         async function searchMember() {
-            const query = document.getElementById('searchInput').value.trim();
+            const rawQuery = document.getElementById('searchInput').value.trim();
+            const query = normalizeToken(rawQuery);
+
             const resultCard = document.getElementById('resultCard');
             const noResult = document.getElementById('noResult');
 
-            if (!query) {
+            if (!rawQuery) {
                 alert("કૃપા કરીને ટોકન નંબર લખો!");
                 return;
             }
 
             // ડેમો સેટઅપ (જો API લિંક નાખેલી ન હોય)
             if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
-                if (query === "101" || query === "RD-101") {
-                    document.getElementById('resToken').innerText = "RD-101";
-                    document.getElementById('resName').innerText = "રમેશભાઈ પટેલ";
+                if (query === "1") {
+                    document.getElementById('resToken').innerText = "1";
+                    document.getElementById('resName').innerText = "સેમ્પલ સભ્ય (GHARANA)";
                     document.getElementById('resAddress').innerText = "સામખીયારી, કચ્છ";
-                    document.getElementById('resAgent').innerText = "સુરેશભાઈ";
+                    document.getElementById('resAgent').innerText = "સેમ્પલ એજન્ટ";
                     resultCard.style.display = 'block';
                     noResult.style.display = 'none';
                 } else {
@@ -300,9 +312,11 @@
                 const response = await fetch(SCRIPT_URL);
                 const data = await response.json();
 
-                const found = data.find(item => 
-                    item.token.toLowerCase() === query.toLowerCase()
-                );
+                // આગળના 0 ધ્યાને લીધા વિના મેચ કરશે
+                const found = data.find(item => {
+                    const itemToken = normalizeToken(item.token);
+                    return itemToken === query || item.token.toString().trim().toLowerCase() === rawQuery.toLowerCase();
+                });
 
                 if (found) {
                     document.getElementById('resToken').innerText = found.token;
@@ -319,6 +333,7 @@
                 alert("ડેટા લોડ કરવામાં ભૂલ થઈ રહી છે.");
             }
         }
+
     </script>
 </body>
 </html>
